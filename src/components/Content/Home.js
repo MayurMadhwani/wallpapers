@@ -45,23 +45,29 @@ const Home = () => {
 
   return (
     <Main>
-        <Navbar/>
+      <Content>
         
+        <Navbar/>
+        <Container>
           {urls && urls.map((url,idx)=>
             <ImageContainer key={idx} url={url}/>
           )}
+        </Container>
 
-        {
-          loading && 
-            <Loader image={lightloading}/> 
-          
-        }
-
+        {loading && <Loader image={lightloading}/>}
+      </Content>
     </Main>
   )
 }
 
 const Main = styled.div`
+  height: 100%;
+  min-width: 100%;
+  width: auto;
+  display:flex;
+  justify-content: center;
+`
+const Content = styled.div`
   height: 100%;
   width: 100%;
   display:flex;
@@ -70,8 +76,28 @@ const Main = styled.div`
 `
 
 const Container = styled.div`
+  
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-column-start: 1;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  row-gap: 20px;
+
+  @media (max-width: 1300px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 1100px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 800px) {
+    display: grid;
+    grid-template-columns: auto
+  }
+
 `
 
 export default Home

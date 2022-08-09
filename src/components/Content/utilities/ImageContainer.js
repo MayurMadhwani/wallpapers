@@ -23,6 +23,7 @@ const Main = styled.div`
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     transition-duration: 0.2s;
     background-color: #FEFBF6;
+    
     img{
         width: 95%;
         padding: 20px;

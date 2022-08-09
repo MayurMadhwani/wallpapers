@@ -11,9 +11,7 @@ const FirstPage = () => {
         navigate('/home');
         
     }
-
-    const url = 'https://media.istockphoto.com/photos/camera-lens-with-red-and-blue-backlight-macro-photography-lenses-picture-id1187951204?k=20&m=1187951204&s=612x612&w=0&h=t1jUkNsyuU7tVnOLI_Qpch8UOMhCh8MZ3PqA216Zwts=';
-
+    
   return (
     <Main>
         <Image>
