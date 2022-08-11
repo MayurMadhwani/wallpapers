@@ -42,7 +42,10 @@ const Nav = styled.nav`
 const Button = styled.button`
   color:white;
   margin-right: 10px;
-
+  border: none;
+  border-radius: 25px;
+  transition-duration: 0.4s;
+  
 `
 
 const Container = styled.div`

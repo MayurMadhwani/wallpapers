@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 const Drawer = () => {
   return (
-    <div>
+    <Main>
         
-        <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <Bar className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 
             <div className="offcanvas-header">
                 <h5 className="offcanvas-title" id="offcanvasExampleLabel">Categories</h5>
@@ -26,10 +27,18 @@ const Drawer = () => {
                     
                 </div>
             </div>
-        </div>
-    </div>
+        </Bar>
+    </Main>
   )
 }
+
+const Main = styled.div`
+    font-family: 'Open Sans', sans-serif;
+`
+
+const Bar = styled.div`
+    background-color: #FCF8E8;
+`
 
 export default Drawer
 

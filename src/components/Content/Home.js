@@ -7,11 +7,15 @@ import lightloading from '../../images/lightloading.gif';
 import Loader from '../Loader';
 import Navbar from '../Navbar';
 import ImageContainer from './utilities/ImageContainer';
+import Bottom from '../Bottom';
+
 
 const Home = () => {
 
   const [urls, setUrls] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [photosPerPage] = useState(8);
 
   useEffect(() => {
     
@@ -25,14 +29,19 @@ const Home = () => {
       
       const tempUrls = [];
 
-      // for(const url of tempUrls){
-      //   setUrls([...urls, url]);
-      // }
-
       for(const imageRef of newList){
+        
         const url = await getDownloadURL(imageRef);
         tempUrls.push(url);
         setUrls(tempUrls);
+
+        if(tempUrls.length>=currentPage*photosPerPage){
+          setLoading(false);
+        }else{
+          setLoading(true);
+        }
+
+        // setUrls(prev=>[...prev,url]);
       }
 
       // setUrls(tempUrls);
@@ -43,18 +52,26 @@ const Home = () => {
 
   }, [])
 
+  //Get current images
+
+  const indexOfLastPhoto = currentPage * photosPerPage;
+  const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
+  const currentPhotos = urls.slice(indexOfFirstPhoto, indexOfLastPhoto);
+
   return (
     <Main>
       <Content>
         
         <Navbar/>
         <Container>
-          {urls && urls.map((url,idx)=>
+          {currentPhotos && currentPhotos.map((url,idx)=>
             <ImageContainer key={idx} url={url}/>
           )}
+          {loading && <Loader image={lightloading}/>}
         </Container>
 
-        {loading && <Loader image={lightloading}/>}
+        <Bottom pages={2}/>
+
       </Content>
     </Main>
   )
@@ -74,7 +91,6 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
 `
-
 const Container = styled.div`
   
   display: grid;
