@@ -7,7 +7,8 @@ import lightloading from '../../images/lightloading.gif';
 import Loader from '../Loader';
 import Navbar from '../Navbar';
 import ImageContainer from './utilities/ImageContainer';
-import Bottom from '../Bottom';
+import { Pagination } from '@mui/material';
+import Overlay from '../Overlay';
 
 
 const Home = () => {
@@ -16,6 +17,10 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [photosPerPage] = useState(8);
+
+  const handleChange = (event, value)=>{ 
+    setCurrentPage(value);
+  }
 
   useEffect(() => {
     
@@ -60,6 +65,9 @@ const Home = () => {
 
   return (
     <Main>
+
+      <Overlay/>
+
       <Content>
         
         <Navbar/>
@@ -70,7 +78,7 @@ const Home = () => {
           {loading && <Loader image={lightloading}/>}
         </Container>
 
-        <Bottom pages={2}/>
+        <Pagination count={Math.ceil(urls.length/8)} page={currentPage} onChange={handleChange}/>
 
       </Content>
     </Main>

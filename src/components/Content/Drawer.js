@@ -16,9 +16,8 @@ const Drawer = () => {
             <div className="offcanvas-body">
                 
                 <hr/>
-
                 <div>
-                    Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                    {/* Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc. */}
                 </div>
                 
                 <div>
