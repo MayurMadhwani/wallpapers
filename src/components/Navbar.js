@@ -49,7 +49,7 @@ const Button = styled.button`
 `
 
 const Container = styled.div`
-  background-color: #C68B59;
+  background-color: #C68B59;//main color
   border-radius: 5px;
   padding-top: 2px;
   padding-bottom: 2px;

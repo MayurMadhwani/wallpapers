@@ -7,18 +7,28 @@ const Overlay = () => {
   const [display, setDisplay] = useState('block');
 
   const handleClick = ()=>{
-    // setDisplay('none');
+    setDisplay('none');
   }
 
   return (
     <Main style={{display:display}}>    
         <Backdrop onClick={handleClick}/>
         <Container>
+        <i onClick={handleClick} class="fa-solid fa-xmark"/>
             <Content>
-
+                Welcome to Mayur's Gallery. {/* Make your phone beautiful with these wallpapers */}
+                <br/>
+                <Span>What's New</Span>
+                <br/>
+                Website Itself
+                <br/>
+                <Span>Upcoming Changes</Span>
+                <br/>
+                Categories will be added soon stay tuned
             </Content>
             <Bottom>
-                <span>Note: </span>
+                <span style={{fontWeight:'bold'}}>Note: </span>
+                This website is still under production. So you may find some bugs.
             </Bottom>
         </Container>
     </Main>
@@ -31,6 +41,18 @@ const Main = styled.div`
     width: 100%;
     height: 100%;
     font-family: 'Open Sans', sans-serif;
+    
+    /* animation */
+    animation-name: container;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    
+    @keyframes container {
+        from{display:'block'}
+        to{opacity:'none'}
+    }
+    
 `
 
 const Backdrop = styled.div`
@@ -53,23 +75,56 @@ const Container = styled.div`
     bottom: 0;
     margin: auto;
     border-radius: 25px;
-
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    grid-template-rows: auto auto auto;
+    text-align: center;
+    
+    /* animation */
+    animation-name: container;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+
+    @keyframes container {
+        from{opacity:0; top:-300px}
+        to{opacity:1}
+    }
 
     @media (max-width: 730px) {
         width:90%;
         height: 90%;
     }
 
+    //child
+    i{
+        font-size: 30px;
+        margin: 30px;
+        color: gray;
+        cursor: pointer;
+        
+        &:hover{
+            color: darkgray;
+        }
+    }
+
 `
 
 const Content = styled.div`
-
+    width: 90%;
 `
 
 const Bottom = styled.div`
-    
+    margin-top: auto;
+    margin-bottom: 20px;
+`
+
+const Span = styled.span`
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
 `
 
 export default Overlay

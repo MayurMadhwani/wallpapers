@@ -22,7 +22,7 @@ const Drawer = () => {
                 
                 <div>
                     
-                        <Link to='/home'className="nav-link active" aria-current="page" >All</Link>
+                    <Link to='/home'className="nav-link active" aria-current="page" >This area is under construction</Link>
                     
                 </div>
             </div>

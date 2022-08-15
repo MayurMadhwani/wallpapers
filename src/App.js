@@ -9,15 +9,17 @@ function App() {
   return (
     <Main>
       <Routes>
+        
         <Route 
           path='/' 
           element={<FirstPage/>}
         />
+
         <Route
           path='/home' 
           element={<Home/>}
         />
-        
+
       </Routes>
     </Main>
   );

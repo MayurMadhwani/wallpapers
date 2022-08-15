@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ImageContainer = (props) => {
+const ImageContainer = ({url}) => {
+
   return (
     <Main>
-        <img src={props.url} alt="Loading"/>
+        <img src={url} alt="Loading"/>
         <Button>
-            <A href={props.url} download>Download</A>
+            <A href={url} download>Download</A>
         </Button>
     </Main>
   )
@@ -21,7 +22,6 @@ const Main = styled.div`
     align-items: center;
     margin: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    transition-duration: 0.2s;
     background-color: #FEFBF6;
     
     img{
@@ -34,7 +34,6 @@ const Main = styled.div`
     }
 
     @media (max-width: 768px) {
-        /* width: 80%; */
         
     }
 
