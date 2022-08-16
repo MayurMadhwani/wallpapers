@@ -106,6 +106,7 @@ const Container = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 10px;
   row-gap: 20px;
+  transition-duration: 0.4s;
 
   @media (max-width: 1300px) {
     display: grid;

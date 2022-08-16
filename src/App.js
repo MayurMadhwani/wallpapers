@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import FirstPage from './components/FirstPage';
 import Home from './components/Content/Home';
 import {Routes, Route, Link} from 'react-router-dom';
+import ImageDownload from './components/Content/utilities/ImageDownload';
 
 
 function App() {
@@ -18,6 +19,11 @@ function App() {
         <Route
           path='/home' 
           element={<Home/>}
+        />
+
+        <Route
+          path='/home/downloadImage' 
+          element={<ImageDownload/>}
         />
 
       </Routes>

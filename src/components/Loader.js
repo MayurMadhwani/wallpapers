@@ -13,6 +13,7 @@ const Image = styled.img`
     min-width: 200px;
     transition-duration: 0.4s;
     width: 20%;
+
 `
 
 export default Loader

@@ -42,17 +42,6 @@ const Main = styled.div`
     height: 100%;
     font-family: 'Open Sans', sans-serif;
     
-    /* animation */
-    animation-name: container;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease;
-    
-    @keyframes container {
-        from{display:'block'}
-        to{opacity:'none'}
-    }
-    
 `
 
 const Backdrop = styled.div`
@@ -89,7 +78,7 @@ const Container = styled.div`
     animation-timing-function: ease;
 
     @keyframes container {
-        from{opacity:0; top:-300px}
+        from{opacity:0; top:-800px; height:0px}
         to{opacity:1}
     }
 

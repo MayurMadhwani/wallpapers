@@ -1,14 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 
 const ImageContainer = ({url}) => {
 
+    const navigate = useNavigate();
+
+    const goToDownloadPage = ()=>{
+        navigate('/home/downloadImage',{state:{url:url}});
+    }
+
   return (
-    <Main>
+    <Main onClick={goToDownloadPage}>
         <img src={url} alt="Loading"/>
-        <Button>
-            <A href={url} download>Download</A>
-        </Button>
     </Main>
   )
 }
@@ -16,6 +20,7 @@ const ImageContainer = ({url}) => {
 const Main = styled.div`
     
     width: 350px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,10 +28,13 @@ const Main = styled.div`
     margin: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     background-color: #FEFBF6;
-    
+    cursor: pointer;
+    transition-duration:0.4s;
     img{
-        width: 95%;
-        padding: 20px;
+
+        max-width: 95%;
+        padding: 10px;
+        max-height: 95%;
     }
 
     &:hover{
@@ -37,39 +45,19 @@ const Main = styled.div`
         
     }
 
-`;
 
-const Button = styled.button`
-    
-    padding: 8px 16px;
-    text-align: center;
-    font-size: 16px;
-    margin-bottom: 15px;
-    transition-duration: 0.1s;
-    border: 1px solid #F5C7A9;
-    border-radius: 5px;
-    width: 85%;
-    letter-spacing: 1px;
-    cursor: pointer;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    z-index: 1;
-    background-color: #FEFBF6;
-    
-    &:hover {
-        background-color: #F5C7A9;
-        color: white;
-        a{
-            color: #FCF8E8;
-        }
+    //animation
+
+    animation-name: imageContainer;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+
+    @keyframes imageContainer {
+        from {opacity:0;width:0px;height:0px}
+        to {opacity:1}
     }
-`
 
-const A = styled.a`
-    text-decoration: none;
-    /* color: #FF5D5D; */
-    color: #DF7861;
-    
-`
+`;
 
 export default ImageContainer

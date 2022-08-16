@@ -29,6 +29,18 @@ const Main = styled.div`
   margin-bottom: 10px;
   margin-left:10px;
   margin-right: 10px;
+
+  animation-name: nav;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+
+  @keyframes nav {
+      from{opacity:0; height:0px}
+      to{opacity:1}
+  }
+
+
   /* padding: 10px; */
 `
 

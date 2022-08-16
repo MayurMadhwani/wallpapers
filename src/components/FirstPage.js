@@ -29,6 +29,9 @@ const Main = styled.div`
     align-items:center;
     z-index: 0;
     font-family: 'Open Sans', sans-serif;
+
+    
+
 `
 
 const Image = styled.div`
@@ -50,6 +53,16 @@ const Image = styled.div`
         opacity: 1;
         height: 100%;
         width: 100%;
+    }
+
+    animation-name: main;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+
+    @keyframes main {
+        from {opacity:0;width:0px;height:0px}
+        to {opacity:1}
     }
 
 `
@@ -82,6 +95,16 @@ const Button = styled.button`
 
     i{
         margin-left: 5px;
+    }
+
+    animation-name: button;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+
+    @keyframes button {
+        from {opacity:0;width:0px;height:0px}
+        to {opacity:1}
     }
 
 `
