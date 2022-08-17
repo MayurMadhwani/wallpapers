@@ -14,7 +14,7 @@ const Overlay = () => {
     <Main style={{display:display}}>    
         <Backdrop onClick={handleClick}/>
         <Container>
-        <i onClick={handleClick} class="fa-solid fa-xmark"/>
+        <i onClick={handleClick} className="fa-solid fa-xmark"/>
             <Content>
                 Welcome to Mayur's Gallery. {/* Make your phone beautiful with these wallpapers */}
                 <br/>

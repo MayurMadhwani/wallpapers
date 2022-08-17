@@ -17,9 +17,11 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [photosPerPage] = useState(8);
+  const [pageCount, setPateCount] = useState(1);
 
-  const handleChange = (event, value)=>{ 
+  const handleChange = async(event, value)=>{ 
     setCurrentPage(value);
+    window.scrollTo({top: 0});
   }
 
   useEffect(() => {
@@ -39,17 +41,18 @@ const Home = () => {
         const url = await getDownloadURL(imageRef);
         tempUrls.push(url);
         setUrls(tempUrls);
+        setPateCount(Math.ceil(tempUrls.length/8));
 
         if(tempUrls.length>=currentPage*photosPerPage){
+          // console.log(tempUrls.length + ' false ' + currentPage);
           setLoading(false);
         }else{
+          // console.log(tempUrls.length + ' true ' + currentPage);
           setLoading(true);
         }
 
-        // setUrls(prev=>[...prev,url]);
       }
 
-      // setUrls(tempUrls);
       setLoading(false);
     }
 
@@ -78,7 +81,7 @@ const Home = () => {
           {loading && <Loader image={lightloading}/>}
         </Container>
 
-        <Pagination count={Math.ceil(urls.length/8)} page={currentPage} onChange={handleChange}/>
+        <Pagination count={pageCount} page={currentPage} onChange={handleChange}/>
 
       </Content>
     </Main>

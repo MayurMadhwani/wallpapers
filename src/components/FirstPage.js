@@ -15,7 +15,7 @@ const FirstPage = () => {
   return (
     <Main>
         <Image>
-            <Button onClick={goToHome}>Explore  <i class="fa-solid fa-arrow-right"/></Button> 
+            <Button onClick={goToHome}>Explore  <i className="fa-solid fa-arrow-right"/></Button> 
         </Image>
     </Main>
   )

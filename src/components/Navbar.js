@@ -11,7 +11,7 @@ const Navbar = () => {
         <Container className="container-fluid">
         
           <Button className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-            <i class="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-bars"></i>
           </Button>
         
           <Link to="/home" style={{color:'#FCF8E8'}} className="navbar-brand" >Mayur's Gallery</Link>
