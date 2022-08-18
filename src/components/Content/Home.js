@@ -9,21 +9,16 @@ import Navbar from '../Navbar';
 import ImageContainer from './utilities/ImageContainer';
 import { Pagination } from '@mui/material';
 import Overlay from '../Overlay';
-import { async } from '@firebase/util';
-
 
 const Home = () => {
 
   const [urls, setUrls] = useState([]);
+  const [refs, setRefs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [photosPerPage] = useState(8);
   const [pageCount, setPageCount] = useState(1);
-  
-  //New way of fetching
-  const [testurls,setTestUrls] = useState([]);
-  const [testPageContent, setTestPageContent] = useState([]);
-  
+  const [pageContent, setpageContent] = useState([]);
   
   const handleChange = async(event, value)=>{ 
 
@@ -35,29 +30,30 @@ const Home = () => {
 
     const getData = async()=>{
       
+
       setLoading(true);
 
       //trying new way
 
-      if(testurls.length === 0){
+      if(refs.length === 0){
         
-        let testListRef = ref(storage,'gs://wallpapers-de0a1.appspot.com/Main/');
-        const testList = await listAll(testListRef);
-        const testNewList = testList.items;
-        setTestUrls(testNewList);
-        setPageCount(Math.ceil(testNewList.length/8));
+        let listRef = ref(storage,'gs://wallpapers-de0a1.appspot.com/Main/');
+        const list = await listAll(listRef);
+        const newList = list.items;
+        setRefs(newList);
+        setPageCount(Math.ceil(newList.length/8));
 
         //setting data
         const temp = [];
         const indexOfLastPhoto = currentPage * photosPerPage;
         const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
-        const contentForCurrentPage = testNewList.slice(indexOfFirstPhoto,indexOfLastPhoto);
+        const contentForCurrentPage = newList.slice(indexOfFirstPhoto,indexOfLastPhoto);
 
         for(const imageRef of contentForCurrentPage){
 
           const url = await getDownloadURL(imageRef);
           temp.push(url);
-          setTestPageContent(temp);
+          setpageContent(temp);
 
         }
 
@@ -67,63 +63,29 @@ const Home = () => {
 
         //setting data
         const temp = [];
-        setTestPageContent([]);
+        setpageContent([]);
 
         const indexOfLastPhoto = currentPage * photosPerPage;
         const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
         
-        const contentForCurrentPage = testurls.slice(indexOfFirstPhoto,indexOfLastPhoto);
+        const contentForCurrentPage = refs.slice(indexOfFirstPhoto,indexOfLastPhoto);
 
         for(const imageRef of contentForCurrentPage){
 
           const url = await getDownloadURL(imageRef);
           temp.push(url);
-          setTestPageContent(temp);
+          setpageContent(temp);
 
         }
 
       }
 
-      /*
-      let listRef  = ref(storage,'gs://wallpapers-de0a1.appspot.com/Main/');
-      
-      const list = await listAll(listRef);
-      const newList = list.items;
-      setPageCount(Math.ceil(newList.length/8));
-
-      const tempUrls = [];
-
-      for(const imageRef of newList){
-        
-        const url = await getDownloadURL(imageRef);
-        tempUrls.push(url);
-        setUrls(tempUrls);
-        
-        if(tempUrls.length>=currentPage*photosPerPage){
-          // console.log(tempUrls.length + ' false ' + currentPage);
-          setLoading(false);
-        }else{
-          // console.log(tempUrls.length + ' true ' + currentPage);
-          setLoading(true);
-        }
-
-      }
-      */
       setLoading(false);
     }
 
     getData();
 
-
-    // window.addEventListener("scroll",handleChange);
-
   }, [currentPage])
-
-  //Get current images
-
-  const indexOfLastPhoto = currentPage * photosPerPage;
-  const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
-  const currentPhotos = urls.slice(indexOfFirstPhoto, indexOfLastPhoto);
 
   return (
     <Main>
@@ -134,7 +96,7 @@ const Home = () => {
         
         <Navbar/>
         <Container>
-          {testPageContent && testPageContent.map((url,idx)=>
+          {pageContent && pageContent.map((url,idx)=>
             <ImageContainer key={idx} url={url}/>
           )}
           {loading && <Loader image={lightloading}/>}
