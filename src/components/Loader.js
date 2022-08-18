@@ -3,9 +3,17 @@ import styled from 'styled-components'
 
 const Loader = (props) => {
   return (
-    <Image src = {props.image}/>
+    <Container>
+      <Image src = {props.image}/>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const Image = styled.img`
     margin-top: auto;

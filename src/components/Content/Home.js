@@ -9,6 +9,7 @@ import Navbar from '../Navbar';
 import ImageContainer from './utilities/ImageContainer';
 import { Pagination } from '@mui/material';
 import Overlay from '../Overlay';
+import { async } from '@firebase/util';
 
 
 const Home = () => {
@@ -17,23 +18,79 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [photosPerPage] = useState(8);
-  const [pageCount, setPateCount] = useState(1);
-
+  const [pageCount, setPageCount] = useState(1);
+  
+  //New way of fetching
+  const [testurls,setTestUrls] = useState([]);
+  const [testPageContent, setTestPageContent] = useState([]);
+  
+  
   const handleChange = async(event, value)=>{ 
-    setCurrentPage(value);
-    window.scrollTo({top: 0});
+
+    setCurrentPage(value);    
+    
   }
 
   useEffect(() => {
-    
+
     const getData = async()=>{
       
       setLoading(true);
-      const listRef = ref(storage,'gs://wallpapers-de0a1.appspot.com/Main/');
+
+      //trying new way
+
+      if(testurls.length === 0){
+        
+        let testListRef = ref(storage,'gs://wallpapers-de0a1.appspot.com/Main/');
+        const testList = await listAll(testListRef);
+        const testNewList = testList.items;
+        setTestUrls(testNewList);
+        setPageCount(Math.ceil(testNewList.length/8));
+
+        //setting data
+        const temp = [];
+        const indexOfLastPhoto = currentPage * photosPerPage;
+        const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
+        const contentForCurrentPage = testNewList.slice(indexOfFirstPhoto,indexOfLastPhoto);
+
+        for(const imageRef of contentForCurrentPage){
+
+          const url = await getDownloadURL(imageRef);
+          temp.push(url);
+          setTestPageContent(temp);
+
+        }
+
+        // console.log(temp);
+
+      }else{
+
+        //setting data
+        const temp = [];
+        setTestPageContent([]);
+
+        const indexOfLastPhoto = currentPage * photosPerPage;
+        const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
+        
+        const contentForCurrentPage = testurls.slice(indexOfFirstPhoto,indexOfLastPhoto);
+
+        for(const imageRef of contentForCurrentPage){
+
+          const url = await getDownloadURL(imageRef);
+          temp.push(url);
+          setTestPageContent(temp);
+
+        }
+
+      }
+
+      /*
+      let listRef  = ref(storage,'gs://wallpapers-de0a1.appspot.com/Main/');
       
       const list = await listAll(listRef);
       const newList = list.items;
-      
+      setPageCount(Math.ceil(newList.length/8));
+
       const tempUrls = [];
 
       for(const imageRef of newList){
@@ -41,8 +98,7 @@ const Home = () => {
         const url = await getDownloadURL(imageRef);
         tempUrls.push(url);
         setUrls(tempUrls);
-        setPateCount(Math.ceil(tempUrls.length/8));
-
+        
         if(tempUrls.length>=currentPage*photosPerPage){
           // console.log(tempUrls.length + ' false ' + currentPage);
           setLoading(false);
@@ -52,13 +108,16 @@ const Home = () => {
         }
 
       }
-
+      */
       setLoading(false);
     }
 
     getData();
 
-  }, [])
+
+    // window.addEventListener("scroll",handleChange);
+
+  }, [currentPage])
 
   //Get current images
 
@@ -75,7 +134,7 @@ const Home = () => {
         
         <Navbar/>
         <Container>
-          {currentPhotos && currentPhotos.map((url,idx)=>
+          {testPageContent && testPageContent.map((url,idx)=>
             <ImageContainer key={idx} url={url}/>
           )}
           {loading && <Loader image={lightloading}/>}

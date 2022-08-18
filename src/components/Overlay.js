@@ -28,7 +28,7 @@ const Overlay = () => {
             </Content>
             <Bottom>
                 <span style={{fontWeight:'bold'}}>Note: </span>
-                This website is still under production. So you may find some bugs.
+                This website is still in production. So you may find some bugs.
             </Bottom>
         </Container>
     </Main>

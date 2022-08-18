@@ -8,13 +8,14 @@ const Navbar = () => {
     <Main>
       <Drawer/>
       <Nav className="navbar navbar-expand-lg bg-light">
-        <Container className="container-fluid">
+        <Container className=''>
         
           <Button className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
             <i className="fa-solid fa-bars"></i>
           </Button>
         
           <Link to="/home" style={{color:'#FCF8E8'}} className="navbar-brand" >Mayur's Gallery</Link>
+          <Link to="/about" style={{color:'#FCF8E8'}} className="navbar-brand" >About</Link>
           
         </Container>
       </Nav>
@@ -36,28 +37,25 @@ const Main = styled.div`
   animation-timing-function: ease;
 
   @keyframes nav {
-      from{opacity:0; height:0px}
+      from{opacity:0; height:0px; top:-200px}
       to{opacity:1}
   }
 
-
-  /* padding: 10px; */
 `
 
 const Nav = styled.nav`
   border-radius: 25px;
   padding: 0px;
   color: white;
-  justify-content: flex-start;
+  width: 100%;
 `
 
 const Button = styled.button`
-  color:white;
+  color: white;
   margin-right: 10px;
   border: none;
   border-radius: 25px;
   transition-duration: 0.4s;
-  
 `
 
 const Container = styled.div`
@@ -69,7 +67,10 @@ const Container = styled.div`
   padding-right: 20px;
   font-family: 'Open Sans', sans-serif;
   letter-spacing: 1px;
-  
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 `
 
 export default Navbar

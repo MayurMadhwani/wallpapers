@@ -3,6 +3,7 @@ import FirstPage from './components/FirstPage';
 import Home from './components/Content/Home';
 import {Routes, Route, Link} from 'react-router-dom';
 import ImageDownload from './components/Content/utilities/ImageDownload';
+import About from './components/About';
 
 
 function App() {
@@ -24,6 +25,11 @@ function App() {
         <Route
           path='/home/downloadImage' 
           element={<ImageDownload/>}
+        />
+
+        <Route
+          path='/about' 
+          element={<About/>}
         />
 
       </Routes>
