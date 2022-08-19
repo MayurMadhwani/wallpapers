@@ -12,14 +12,14 @@ import Overlay from '../Overlay';
 
 const Home = () => {
 
-  const [urls, setUrls] = useState([]);
   const [refs, setRefs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [photosPerPage] = useState(8);
   const [pageCount, setPageCount] = useState(1);
   const [pageContent, setpageContent] = useState([]);
-  
+  const [loadedPageContent, setLoadedPageContent] = useState({});
+
   const handleChange = async(event, value)=>{ 
 
     setCurrentPage(value);    
@@ -30,25 +30,25 @@ const Home = () => {
 
     const getData = async()=>{
       
-
       setLoading(true);
 
-      //trying new way
+      //getting reference to all the images only once
 
       if(refs.length === 0){
         
-        let listRef = ref(storage,'gs://wallpapers-de0a1.appspot.com/Main/');
+        const listRef = ref(storage,'gs://wallpapers-de0a1.appspot.com/Main/');
         const list = await listAll(listRef);
         const newList = list.items;
         setRefs(newList);
         setPageCount(Math.ceil(newList.length/8));
 
         //setting data
-        const temp = [];
+        
         const indexOfLastPhoto = currentPage * photosPerPage;
         const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
         const contentForCurrentPage = newList.slice(indexOfFirstPhoto,indexOfLastPhoto);
 
+        const temp = [];
         for(const imageRef of contentForCurrentPage){
 
           const url = await getDownloadURL(imageRef);
@@ -57,18 +57,20 @@ const Home = () => {
 
         }
 
-        // console.log(temp);
+        const objTemp = loadedPageContent;
+        objTemp[currentPage] = temp;
+        setLoadedPageContent(objTemp);
 
       }else{
 
         //setting data
-        const temp = [];
         setpageContent([]);
 
         const indexOfLastPhoto = currentPage * photosPerPage;
         const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
-        
         const contentForCurrentPage = refs.slice(indexOfFirstPhoto,indexOfLastPhoto);
+
+        const temp = [];
 
         for(const imageRef of contentForCurrentPage){
 
@@ -77,13 +79,24 @@ const Home = () => {
           setpageContent(temp);
 
         }
+
+        const objTemp = loadedPageContent;
+        objTemp[currentPage] = temp;
+        setLoadedPageContent(objTemp);
 
       }
 
       setLoading(false);
     }
 
-    getData();
+    //if current page is already loaded then just use it
+
+    if(loadedPageContent[currentPage]){
+      setpageContent(loadedPageContent[currentPage]);
+    }else{
+      getData();
+    }
+    
 
   }, [currentPage])
 
@@ -131,7 +144,8 @@ const Container = styled.div`
   column-gap: 10px;
   row-gap: 20px;
   transition-duration: 0.4s;
-
+  animation-timing-function: ease;
+  
   @media (max-width: 1300px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -7,9 +7,7 @@ const FirstPage = () => {
     const navigate = useNavigate();
 
     const goToHome = ()=>{
-        
         navigate('/home');
-        
     }
     
   return (
