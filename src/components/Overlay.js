@@ -16,12 +16,17 @@ const Overlay = () => {
         <Container>
         <i onClick={handleClick} className="fa-solid fa-xmark"/>
             <Content>
-                Welcome to Mayur's Gallery. {/* Make your phone beautiful with these wallpapers */}
+                Welcome to Mayur's Gallery.
+                <br/>
+                Make your phone beautiful with these wallpapers
                 <br/>
                 <Span>What's New</Span>
                 <br/>
-                Website Itself
-                
+                <Changes>
+                    <li>Website itself</li>
+                    <li>Loader alignment corrected</li>
+                    <li>About section added</li>
+                </Changes>
                 <br/>
                 <Span>Upcoming Changes</Span>
                 <br/>
@@ -104,6 +109,16 @@ const Container = styled.div`
 
 const Content = styled.div`
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const Changes = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 `
 
 const Bottom = styled.div`

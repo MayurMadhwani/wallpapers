@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Loader = (props) => {
+const Loader = ({image}) => {
   return (
     <Container>
-      <Image src = {props.image}/>
+      <Image src = {image}/>
     </Container>
   )
 }
