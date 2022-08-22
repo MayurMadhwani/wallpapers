@@ -1,19 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom';
+import { saveAs } from "file-saver";
 
 const ImageContainer = ({url}) => {
 
-    const navigate = useNavigate();
-
-    const goToDownloadPage = ()=>{
-        navigate('/home/downloadImage',{state:{url:url}});
+    const download = ()=>{
+        saveAs(url, 'wallpaper');
     }
 
   return (
-    <Main onClick={goToDownloadPage}>
+    
+    <Main onClick={download}>
         <img src={url} alt="Loading"/>
     </Main>
+    
   )
 }
 

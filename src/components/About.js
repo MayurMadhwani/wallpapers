@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import dp from '../images/dp.jpeg';
 
 const About = () => {
+
   return (
     <Main>
       <Top>
@@ -20,13 +22,13 @@ const About = () => {
       Feel free to connect
 
       <Bottom>
+        
         <BottomContainer>
-          <i style={{
-            &:hover{}
-          }}className="fa-brands fa-instagram"></i>
-          <i className="fa-brands fa-linkedin-in"></i>
-          <i className="fa-brands fa-facebook-f"></i>
-          <i className="fa-brands fa-twitter"></i>
+          <Instagram onClick={()=>{window.open('https://www.instagram.com/mayur_madhwani03/')}} className="fa-brands fa-instagram"><span>Instagram</span></Instagram>
+          <Linkedin onClick={()=>{window.open('https://www.linkedin.com/in/mayur-madhwani/')}} className="fa-brands fa-linkedin-in"><span>Linkedin</span></Linkedin>
+          <Twitter onClick={()=>{window.open('https://twitter.com/mayur_madhwani_')}} className="fa-brands fa-twitter"><span>Twitter</span></Twitter>
+          <Facebook onClick={()=>{window.open('https://www.facebook.com/mayurmadhwani03/')}} className="fa-brands fa-facebook-f"><span>Facebook</span></Facebook>
+          <Youtube onClick={()=>{window.open('https://www.youtube.com/channel/UCv6MKB7nN43ILzWxuDn8RRA')}} className="fa-brands fa-youtube"><span>YouTube</span></Youtube>
         </BottomContainer>
       
       </Bottom> 
@@ -49,7 +51,6 @@ const Main = styled.div`
   flex-flow: column;
   letter-spacing: 1px;
   overflow-y: hidden;
-
   &:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -67,7 +68,8 @@ const Main = styled.div`
   }
 
   @media (max-width: 600px) {
-    width: 90%;
+    width: 100%;
+    height: 100%;
   }
 
   //animation
@@ -113,7 +115,7 @@ const Span = styled.span`
 
 const Bottom = styled.div`
 
-  width: 500px;
+  width: 100%;
   height: 100vh;
   transition-duration: 0.4s;
   margin-top: 200px;
@@ -132,11 +134,12 @@ const Bottom = styled.div`
 `
 
 const BottomContainer = styled.div`
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  max-height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
+  
   i{
     border-radius: 50px;
     background-color: #C68B59;
@@ -145,14 +148,113 @@ const BottomContainer = styled.div`
     padding: 1%;
     margin: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 400px) {
+      margin: auto;
+    }
+
     &:hover{
-      color: white;
-      transition-duration: 0.2s;
+      transition-duration: 0.4s;
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      span{
+        font-family: 'Open Sans', sans-serif;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        width: 80px;
+        border-radius: 5px;
+        margin-bottom:80px;
+        font-size: 12px;
+      }
     }
     
+    span{
+      position: absolute;
+      opacity: 0;
+      font-size: 0px;
+      color: black;
+      transition-duration: 0.4s;
+    }
+
+  }
+
+  
+
+`
+
+const Instagram = styled.i`
+
+  &:hover{
+    color: white;
+    background: #f09433; 
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    span{
+      color: white;
+      background: #f09433; 
+      background: #d6249f;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    }
   }
 
 `
+
+const Linkedin = styled.i`
+
+  &:hover{
+    color: white;
+    background-color: #0A66C2;
+    span{
+      color: white;
+      background-color: #0A66C2;
+    }
+  }
+
+`
+
+const Facebook = styled.i`
+
+  &:hover{
+    color: white;
+    background-color: #4267B2;
+    span{
+      color: white;
+      background-color: #4267B2;
+    }
+  }
+
+`
+
+const Twitter = styled.i`
+
+  &:hover{
+    color: white;
+    background-color: #1CA1F1;
+    span{
+      color: white;
+      background-color: #1CA1F1;
+    }
+  }
+
+`
+const Youtube = styled.i`
+
+  &:hover{
+    color: white;
+    background-color: #FF0000;
+    span{
+      color: white;
+      background-color: #FF0000;
+    }
+  }
+
+`
+
+
 
 export default About  

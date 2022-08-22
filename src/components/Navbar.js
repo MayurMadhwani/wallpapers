@@ -15,7 +15,7 @@ const Navbar = () => {
           </Button>
         
           <Link to="/home" style={{color:'#FCF8E8'}} className="navbar-brand" >Mayur's Gallery</Link>
-          <Link to="/about" style={{color:'#FCF8E8'}} className="navbar-brand" >About</Link>
+          <Link to="/about" target='blank' style={{color:'#FCF8E8'}} className="navbar-brand" >About</Link>
           
         </Container>
       </Nav>
