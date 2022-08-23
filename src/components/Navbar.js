@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, to } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Drawer from './Content/Drawer'
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
           </Button>
         
           <Link to="/home" style={{color:'#FCF8E8'}} className="navbar-brand" >Mayur's Gallery</Link>
-          <Link to="/about" target='blank' style={{color:'#FCF8E8'}} className="navbar-brand" >About</Link>
+          <Link to="/about" style={{color:'#FCF8E8'}} className="navbar-brand" >About</Link>
           
         </Container>
       </Nav>

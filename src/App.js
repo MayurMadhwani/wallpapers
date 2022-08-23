@@ -3,7 +3,7 @@ import FirstPage from './components/FirstPage';
 import Home from './components/Content/Home';
 import {Routes, Route} from 'react-router-dom';
 import ImageDownload from './components/Content/utilities/ImageDownload';
-import About from './components/About';
+import About from './components/about/About';
 
 
 function App() {
