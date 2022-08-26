@@ -18,13 +18,8 @@ function App() {
         />
 
         <Route
-          path='/home' 
+          path='/home/*' 
           element={<Home/>}
-        />
-
-        <Route
-          path='/home/downloadImage' 
-          element={<ImageDownload/>}
         />
 
         <Route

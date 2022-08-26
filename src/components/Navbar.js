@@ -17,7 +17,17 @@ const Navbar = () => {
           <Link to="/home" style={{color:'#FCF8E8'}} className="navbar-brand" >Mayur's Gallery</Link>
           <Link to="/about" style={{color:'#FCF8E8'}} className="navbar-brand" >About</Link>
           
+          {/* <div>
+            <input type="checkbox" class="checkbox" id="checkbox"/>
+            <label for="checkbox" class="label">
+              <i class="fas fa-moon"></i>
+              <i class='fas fa-sun'></i>
+              <div class='ball'/>
+            </label>
+          </div> */}
+
         </Container>
+        
       </Nav>
     </Main>
   )
