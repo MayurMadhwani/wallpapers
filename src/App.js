@@ -9,7 +9,7 @@ import About from './components/about/About';
 function App() {
 
   return (
-    <Main>
+    <Main style={{backgroundColor:'#FCF8E8'}}>
       <Routes>
         
         <Route 
@@ -33,7 +33,6 @@ function App() {
 }
 
 const Main = styled.div`
-  background-color: #FCF8E8;
   width: 100%;
   height: 100vh;
   display: flex;

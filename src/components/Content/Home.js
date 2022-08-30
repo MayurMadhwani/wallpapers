@@ -5,6 +5,7 @@ import Overlay from '../Overlay';
 import { Route, Routes } from 'react-router-dom';
 import All from './Categories/All';
 import Animals from './Categories/Animals';
+import Macro from './Categories/Macro';
 
 const Home = () => {
 
@@ -20,6 +21,7 @@ const Home = () => {
         <Routes>
           <Route path='' element={<All/>}/>
           <Route path='animals' element={<Animals/>}/>
+          <Route path='macro' element={<Macro/>}/>
         </Routes>
         
 

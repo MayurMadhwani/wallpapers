@@ -20,16 +20,6 @@ const Drawer = () => {
                 
                 <Categories>
                     <Link to='/home'className="nav-link active" aria-current="page" >This area is under construction</Link>
-                    <NavLink 
-                        style={({ isActive }) => ({ 
-                            backgroundColor: isActive ? '#C68B59' : '#FCF8E8',
-                            color: isActive ? '#FCF8E8' : '#C68B59',
-                            ...buttonStyle
-                        })}   
-                        to='/home'className="nav-link active" aria-current="page"
-                    >
-                        Home
-                    </NavLink>
                     
                     <NavLink 
                         style={({ isActive }) => ({ 
@@ -43,6 +33,20 @@ const Drawer = () => {
                             Animals
                     </NavLink>
                     
+                    <NavLink 
+                        style={({ isActive }) => ({ 
+                            backgroundColor: isActive ? '#C68B59' : '#FCF8E8',
+                            color: isActive ? '#FCF8E8' : '#C68B59',
+                            ...buttonStyle
+                        })}   
+
+                        to='macro'className="nav-link active" aria-current="page"
+                    >
+                            Macro
+                    </NavLink>
+                    
+                    
+
                 </Categories>
             </div>
         </Bar>
