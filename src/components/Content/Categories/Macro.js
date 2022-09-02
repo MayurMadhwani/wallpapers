@@ -5,14 +5,13 @@ import Toggle from '../../buttons/Toggle'
 const Macro = () => {
   return (
     <Main>
-        <Toggle/>
+      <h2>Macro</h2>
     </Main>
   )
 }
 
 const Main = styled.div`
-    
-    margin: 200px;
+  
 `
 
 export default Macro

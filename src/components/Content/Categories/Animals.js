@@ -35,13 +35,10 @@ const Animals = () => {
         for(const item of tempList){
 
           if(item.name.includes('animal')){
-            console.log(item.name);
             newList.push(item);
           }
 
         }
-
-        console.log(newList);
 
         setRefs(newList);
         setPageCount(Math.ceil(newList.length/8));

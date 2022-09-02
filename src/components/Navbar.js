@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import Drawer from './Content/Drawer'
+import Drawer from './Content/Drawer/Drawer'
+import Toggle from './buttons/Toggle'
 
 const Navbar = () => {
   return (
@@ -17,15 +18,7 @@ const Navbar = () => {
           <Link to="/home" style={{color:'#FCF8E8'}} className="navbar-brand" >Mayur's Gallery</Link>
           <Link to="/about" style={{color:'#FCF8E8'}} className="navbar-brand" >About</Link>
           
-          {/* <div>
-            <input type="checkbox" class="checkbox" id="checkbox"/>
-            <label for="checkbox" class="label">
-              <i class="fas fa-moon"></i>
-              <i class='fas fa-sun'></i>
-              <div class='ball'/>
-            </label>
-          </div> */}
-
+          <Toggle/>
         </Container>
         
       </Nav>
@@ -80,7 +73,8 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  
 `
 
 export default Navbar

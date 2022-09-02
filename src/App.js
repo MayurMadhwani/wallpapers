@@ -2,14 +2,13 @@ import styled from 'styled-components'
 import FirstPage from './components/FirstPage';
 import Home from './components/Content/Home';
 import {Routes, Route} from 'react-router-dom';
-import ImageDownload from './components/Content/utilities/ImageDownload';
 import About from './components/about/About';
 
 
 function App() {
 
   return (
-    <Main style={{backgroundColor:'#FCF8E8'}}>
+    <Main >
       <Routes>
         
         <Route 
@@ -33,6 +32,7 @@ function App() {
 }
 
 const Main = styled.div`
+  background-color: ${true?'#FCF8E8':'gray'};
   width: 100%;
   height: 100vh;
   display: flex;
