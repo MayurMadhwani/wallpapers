@@ -9,7 +9,8 @@ const Drawer = () => {
         <Bar style={{width:'300px'}} className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 
             <div className="offcanvas-header">
-                <h5 className="offcanvas-title" id="offcanvasExampleLabel">Categories</h5>
+                {/* <h5 className="offcanvas-title" id="offcanvasExampleLabel">Categories</h5> */}
+                <Heading>Categories</Heading>
                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"/>
             </div>
 
@@ -41,6 +42,10 @@ const Drawer = () => {
 
 const Main = styled.div`
     font-family: 'Open Sans', sans-serif;
+`
+
+const Heading = styled.h5`
+    color:#C68B59;
 `
 
 const Bar = styled.div`

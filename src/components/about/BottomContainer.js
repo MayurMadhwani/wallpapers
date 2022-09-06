@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { darkBackground, darkText, lighBackground, lightText, solidDark, solidLight } from '../../colors/colors';
 
 const instagramUrl = 'https://www.instagram.com/mayur_madhwani03/';
 const linkedinUrl = 'https://www.linkedin.com/in/mayur-madhwani/';
@@ -8,8 +10,15 @@ const facebookUrl = 'https://www.facebook.com/mayurmadhwani03/';
 const youtubeUrl = 'https://www.youtube.com/channel/UCv6MKB7nN43ILzWxuDn8RRA';
 
 const BottomContainer = () => {
+
+  const darkmode = useSelector(state=>state.darkmode.value);
+
   return (
-    <Main>
+    <Main
+      style={{
+        
+      }}
+    >
         <Instagram onClick={()=>{window.open(instagramUrl)}} className="fa-brands fa-instagram"><span>Instagram</span></Instagram>
         <Linkedin onClick={()=>{window.open(linkedinUrl)}} className="fa-brands fa-linkedin-in"><span>Linkedin</span></Linkedin>
         <Twitter onClick={()=>{window.open(twitterUrl)}} className="fa-brands fa-twitter"><span>Twitter</span></Twitter>

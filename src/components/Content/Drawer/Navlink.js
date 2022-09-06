@@ -20,16 +20,16 @@ const Navlink = ({path,category}) => {
 }
 
 const buttonStyle = {
-    padding: '2px 32px',
-    textAlign: 'center',
-    fontSize: '18px',
-    marginTop: '10px',
-    transitionDuration: '0.4s',
-    border: 'none',
-    width: '100%',
-    letterSpacing: '2px',
-    cursor: 'pointer',
-    borderRadius: '5px',
+  padding: '2px 32px',
+  textAlign: 'center',
+  fontSize: '18px',
+  marginTop: '10px',
+  transitionDuration: '0.4s',
+  border: 'none',
+  width: '100%',
+  letterSpacing: '2px',
+  cursor: 'pointer',
+  borderRadius: '5px',
 }
 
 export default Navlink

@@ -2,11 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import dp from '../../images/dp.jpeg'
 import BottomContainer from './BottomContainer'
+import { useSelector } from 'react-redux'
+import { darkBackground, darkText, lighBackground, lightText} from '../../colors/colors';
 
 const About = () => {
 
+  const darkmode = useSelector(state=>state.darkmode.value);
+
   return (
-    <Main>
+    <Main
+      style={{
+        color: darkmode ? darkText : lightText,
+        backgroundColor: darkmode ? darkBackground : lighBackground,
+      }}
+    >
       <Top>
         <img src={dp} alt='loading'></img>
         <Intro>
@@ -30,8 +39,7 @@ const About = () => {
 }
 
 const Main = styled.div`
-
-  background-color: white;
+  
   width: 500px;
   height: 90%;
   max-height: 700px;

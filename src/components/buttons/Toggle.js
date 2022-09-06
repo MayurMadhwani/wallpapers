@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux'
+import { update } from '../../features/darkmode/darkmodeSlice';
+import { darkBackground, lighBackground, solidDark, solidLight } from '../../colors/colors';
+
+// text color -> "#A5C9CA";
 
 const Toggle = () => {
 
     const [checked, setChecked] = useState(false)
-    
+    const darkmode = useSelector(state=>state.darkmode.value);
+    const dispatch = useDispatch();
+
     const handleCheckboxChange = ()=>{
       setChecked(!checked);
+      dispatch(update());
     }
 
   return (
@@ -16,10 +24,14 @@ const Toggle = () => {
             onChange = {handleCheckboxChange}
             type="checkbox" id="checkbox"
         />
-        <Label htmlFor="checkbox">
+        <Label 
+          style={{
+            backgroundColor: darkmode ? darkBackground : lighBackground,
+          }}
+          htmlFor="checkbox">
             
             <i 
-                style={{color:'#FFE300'}}
+                style={{color:'#FFF80A'}}
                 className='fas fa-sun'
             />
             <i
@@ -30,6 +42,7 @@ const Toggle = () => {
             <Ball
                 style={{
                     transform:checked?'translateX(24px)':'',
+                    backgroundColor: darkmode ? solidDark : solidLight,
                 }}
             />
         </Label>
@@ -55,7 +68,6 @@ const Label = styled.label`
 
   width: 50px;
   height: 24px;
-  background-color:#FCF8E8;
   display: flex;
   border-radius:50px;
   align-items: center;
@@ -63,6 +75,7 @@ const Label = styled.label`
   padding: 5px;
   position: relative;
   transform: scale(1.5);
+  transition-duration: 0.4s;
   cursor: pointer;
   i{
     font-size: 18px;
@@ -71,15 +84,14 @@ const Label = styled.label`
 
 const Ball = styled.div`
   
-  width: 20px;
-  height: 20px;
-  background-color: #C68B59;
+  width: 21px;
+  height: 21px;
+  
   position: absolute;
   margin-bottom: 1px;
   left: 3px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
-  
+  border-radius: 50px;
+  transition: 0.4s;
 `
 
 export default Toggle
