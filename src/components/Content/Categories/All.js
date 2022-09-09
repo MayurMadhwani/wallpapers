@@ -5,7 +5,6 @@ import Loader from '../../Loader';
 import ImageContainer from '../utilities/ImageContainer';
 import { getDownloadURL, listAll, ref } from 'firebase/storage';
 import { storage } from '../../../firebase';
-import lightloading from '../../../images/lightloading.gif';
 
 const All = () => {
 
@@ -99,7 +98,7 @@ const All = () => {
           {pageContent && pageContent.map((url,idx)=>
             <ImageContainer key={idx} url={url}/>
           )}
-          {loading && <Loader image={lightloading}/>}
+          {loading && <Loader/>}
         </Container>
 
         <Pagination count={pageCount} page={currentPage} onChange={handleChange}/>

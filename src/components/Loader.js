@@ -1,10 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import lightloading from '../images/lightloading.gif';
+import darkloading from '../images/darkloading.gif';
+import { useSelector } from 'react-redux'
 
-const Loader = ({image}) => {
+
+const Loader = () => {
+
+  const darkmode = useSelector(state=>state.darkmode.value);
+
   return (
     <Container>
-      <Image src = {image}/>
+      <Image src = {darkmode?darkloading:lightloading}/>
     </Container>
   )
 }

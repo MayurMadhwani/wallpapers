@@ -1,19 +1,27 @@
 import React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { darkBackground, darkText, lightBackground } from '../colors/colors';
 
 const Overlay = () => {
 
   const [display, setDisplay] = useState('block');
+  const darkmode = useSelector(state=>state.darkmode.value);
 
   const handleClick = ()=>{
     setDisplay('none');
   }
 
   return (
-    <Main style={{display:display}}>    
+    <Main style={{
+        display:display,
+        color: darkmode?darkText:'black',
+    }}>
         <Backdrop onClick={handleClick}/>
-        <Container>
+        <Container
+            style={{backgroundColor: darkmode?darkBackground:lightBackground}}
+        >
         <i onClick={handleClick} className="fa-solid fa-xmark"/>
             <Content>
                 Welcome to Mayur's Gallery.
@@ -63,7 +71,6 @@ const Container = styled.div`
     width: 700px;
     height: 90%;
     max-height: 700px;
-    background-color: white;
     position: absolute;
     left: 0;
     right: 0;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { darkBackground, darkText, lighBackground, lightText, solidDark, solidLight } from '../../colors/colors';
+import {darkText, lightText, solidDark, solidLight } from '../../colors/colors';
 
 const instagramUrl = 'https://www.instagram.com/mayur_madhwani03/';
 const linkedinUrl = 'https://www.linkedin.com/in/mayur-madhwani/';
@@ -16,14 +16,34 @@ const BottomContainer = () => {
   return (
     <Main
       style={{
-        
+        color: darkmode ? darkText : lightText,
       }}
     >
-        <Instagram onClick={()=>{window.open(instagramUrl)}} className="fa-brands fa-instagram"><span>Instagram</span></Instagram>
-        <Linkedin onClick={()=>{window.open(linkedinUrl)}} className="fa-brands fa-linkedin-in"><span>Linkedin</span></Linkedin>
-        <Twitter onClick={()=>{window.open(twitterUrl)}} className="fa-brands fa-twitter"><span>Twitter</span></Twitter>
-        <Facebook onClick={()=>{window.open(facebookUrl)}} className="fa-brands fa-facebook-f"><span>Facebook</span></Facebook>
-        <Youtube onClick={()=>{window.open(youtubeUrl)}} className="fa-brands fa-youtube"><span>YouTube</span></Youtube>
+        <Instagram 
+          style={{
+            backgroundColor:darkmode?solidDark:solidLight,
+          }}
+          onClick={()=>{window.open(instagramUrl)}} className="fa-brands fa-instagram"><span>Instagram</span></Instagram>
+        <Linkedin
+          style={{
+            backgroundColor:darkmode?solidDark:solidLight,
+          }}
+          onClick={()=>{window.open(linkedinUrl)}} className="fa-brands fa-linkedin-in"><span>Linkedin</span></Linkedin>
+        <Twitter 
+          style={{
+            backgroundColor:darkmode?solidDark:solidLight,
+          }}
+          onClick={()=>{window.open(twitterUrl)}} className="fa-brands fa-twitter"><span>Twitter</span></Twitter>
+        <Facebook 
+          style={{
+            backgroundColor:darkmode?solidDark:solidLight,
+          }}
+          onClick={()=>{window.open(facebookUrl)}} className="fa-brands fa-facebook-f"><span>Facebook</span></Facebook>
+        <Youtube 
+          style={{
+            backgroundColor:darkmode?solidDark:solidLight,
+          }}
+          onClick={()=>{window.open(youtubeUrl)}} className="fa-brands fa-youtube"><span>YouTube</span></Youtube>
     </Main>
   )
 }
@@ -37,10 +57,9 @@ const Main = styled.div`
   
   i{
     border-radius: 50px;
-    background-color: #C68B59;
     text-align: center;
     width: 50px;
-    padding: 1%;
+    padding: 4px;
     margin: 10px;
     cursor: pointer;
     display: flex;
@@ -49,6 +68,14 @@ const Main = styled.div`
 
     @media (max-width: 400px) {
       margin: auto;
+    }
+
+    span{
+      position: absolute;
+      opacity: 0;
+      font-size: 0px;
+      color: black;
+      transition-duration: 0.4s;
     }
 
     &:hover{
@@ -68,14 +95,6 @@ const Main = styled.div`
       }
     }
     
-    span{
-      position: absolute;
-      opacity: 0;
-      font-size: 0px;
-      color: black;
-      transition-duration: 0.4s;
-    }
-
   }
 
 `

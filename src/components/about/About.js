@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import dp from '../../images/dp.jpeg'
 import BottomContainer from './BottomContainer'
 import { useSelector } from 'react-redux'
-import { darkBackground, darkText, lighBackground, lightText} from '../../colors/colors';
+import { darkBackground, darkText, lightBackground, lightText} from '../../colors/colors';
 
 const About = () => {
 
@@ -12,10 +12,11 @@ const About = () => {
   return (
     <Main
       style={{
-        color: darkmode ? darkText : lightText,
-        backgroundColor: darkmode ? darkBackground : lighBackground,
+        color: darkmode ? darkText : 'black',
+        backgroundColor: darkmode ? darkBackground : lightBackground,
       }}
     >
+      
       <Top>
         <img src={dp} alt='loading'></img>
         <Intro>
@@ -118,7 +119,7 @@ const Bottom = styled.div`
 
   width: 100%;
   height: 300px;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   margin-top: 200px;
   display: flex;
   align-items: center;
@@ -129,7 +130,11 @@ const Bottom = styled.div`
   font-size: 10px;
   &:hover{
     margin-top: 100px;
-    font-size: 40px;
+    font-size: 30px;
+    i{
+      transition-duration: 25ms;
+      padding: 10px;
+    }
   }
 
 `

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useNavigate } from 'react-router-dom';
 import { saveAs } from "file-saver";
+
 
 const ImageContainer = ({url}) => {
 
@@ -11,7 +11,8 @@ const ImageContainer = ({url}) => {
 
   return (
     
-    <Main onClick={download}>
+    <Main
+      onClick={download}>
         <img src={url} alt="Loading"/>
     </Main>
     
@@ -19,7 +20,7 @@ const ImageContainer = ({url}) => {
 }
 
 const Main = styled.div`
-    
+    background-color: white;
     width: 350px;
     min-height: 500px;
     display: flex;
@@ -28,7 +29,6 @@ const Main = styled.div`
     align-items: center;
     margin: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    background-color: #FEFBF6;
     cursor: pointer;
     transition-duration:0.4s;
     img{
@@ -45,7 +45,6 @@ const Main = styled.div`
     @media (max-width: 768px) {
         
     }
-
 
     //animation
 

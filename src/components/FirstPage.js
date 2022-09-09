@@ -1,8 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
+import React,{useState} from 'react'
+import styled, { css } from 'styled-components'
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux'
+import { darkBackground, darkText, lightBackground, lightText, solidDark, solidLight } from '../colors/colors';
 
 const FirstPage = () => {
+
+    const darkmode = useSelector(state=>state.darkmode.value);
+    const lightUrl = 'https://images4.alphacoders.com/255/255596.jpg';
+    const darkUrl = 'https://wallpaperaccess.com/full/5708316.jpg';
 
     const navigate = useNavigate();
 
@@ -10,10 +16,40 @@ const FirstPage = () => {
         navigate('/home');
     }
     
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovering(false);
+    };
+
+
   return (
+    
     <Main>
-        <Image>
-            <Button onClick={goToHome}>Explore  <i className="fa-solid fa-arrow-right"/></Button> 
+        <Image
+            style={{
+                backgroundImage:`url(${darkmode?darkUrl:lightUrl})`
+                
+            }}
+        >
+            <Button 
+                style={{
+                    color:darkmode?
+                        isHovering?darkBackground:solidDark:
+                        isHovering?lightText:solidLight,
+                    backgroundColor:darkmode?
+                        isHovering?solidDark:darkBackground:
+                        isHovering?'#F5C7A9':lightBackground,
+                    // backgroundColor:darkmode?darkBackground:lightBackground,
+                    // ...buttonStateStyleLight
+                }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={goToHome}>Explore  <i className="fa-solid fa-arrow-right"/></Button> 
         </Image>
     </Main>
   )
@@ -28,13 +64,9 @@ const Main = styled.div`
     z-index: 0;
     font-family: 'Open Sans', sans-serif;
 
-    
-
 `
 
 const Image = styled.div`
-    /* background-image: url('https://live.staticflickr.com/623/20872780508_676674b4d0_k.jpg'); */
-    background-image: url('https://images4.alphacoders.com/255/255596.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: center;
@@ -73,7 +105,8 @@ const Button = styled.button`
     font-size: 16px;
     margin: 4px 2px;
     transition-duration: 0.1s;
-    border: 1px solid #F5C7A9;
+    /* border: 1px solid #F5C7A9; */
+    border: none;
     border-radius: 50px;
     width: 300px;
     letter-spacing: 1px;
@@ -87,8 +120,6 @@ const Button = styled.button`
         padding: 18px 36px;
         width: 310px;
         font-size: 20px;
-        background-color: #F5C7A9;
-        color: #FCF8E8;
     }
 
     i{
@@ -106,7 +137,6 @@ const Button = styled.button`
     }
 
 `
-
 
 
 export default FirstPage

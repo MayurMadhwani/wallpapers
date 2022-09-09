@@ -1,32 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { update } from '../../features/darkmode/darkmodeSlice';
-import { darkBackground, lighBackground, solidDark, solidLight } from '../../colors/colors';
+import { darkBackground, lightBackground, solidDark, solidLight } from '../../colors/colors';
 
 // text color -> "#A5C9CA";
 
 const Toggle = () => {
 
-    const [checked, setChecked] = useState(false)
+    
     const darkmode = useSelector(state=>state.darkmode.value);
     const dispatch = useDispatch();
 
     const handleCheckboxChange = ()=>{
-      setChecked(!checked);
+      
       dispatch(update());
     }
 
   return (
     <Main>
         <Checkbox
-            checked = {checked}
+            checked = {darkmode}
             onChange = {handleCheckboxChange}
             type="checkbox" id="checkbox"
         />
         <Label 
           style={{
-            backgroundColor: darkmode ? darkBackground : lighBackground,
+            backgroundColor: darkmode ? darkBackground : lightBackground,
           }}
           htmlFor="checkbox">
             
@@ -41,7 +41,7 @@ const Toggle = () => {
             
             <Ball
                 style={{
-                    transform:checked?'translateX(24px)':'',
+                    transform:darkmode?'translateX(24px)':'',
                     backgroundColor: darkmode ? solidDark : solidLight,
                 }}
             />
@@ -74,7 +74,7 @@ const Label = styled.label`
   justify-content: space-between;
   padding: 5px;
   position: relative;
-  transform: scale(1.5);
+  transform: scale(1.3);
   transition-duration: 0.4s;
   cursor: pointer;
   i{

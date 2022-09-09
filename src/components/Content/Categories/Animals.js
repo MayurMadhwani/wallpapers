@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { storage } from '../../../firebase';
 import Loader from '../../Loader';
-import lightloading from '../../../images/lightloading.gif';
 import ImageContainer from '../utilities/ImageContainer';
 
 const Animals = () => {
@@ -109,7 +108,7 @@ const Animals = () => {
           {pageContent && pageContent.map((url,idx)=>
             <ImageContainer key={idx} url={url}/>
           )}
-          {loading && <Loader image={lightloading}/>}
+          {loading && <Loader/>}
         </Container>
 
         <Pagination count={pageCount} page={currentPage} onChange={handleChange}/>

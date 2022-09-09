@@ -3,12 +3,19 @@ import FirstPage from './components/FirstPage';
 import Home from './components/Content/Home';
 import {Routes, Route} from 'react-router-dom';
 import About from './components/about/About';
-
+import { useSelector } from 'react-redux'
+import {solidDark,lightBackground,darkBackground} from './colors/colors';
 
 function App() {
 
-  return (
-    <Main >
+  const darkmode = useSelector(state=>state.darkmode.value);
+
+  return (  
+    <Main 
+      style={{
+        backgroundColor:darkmode?darkBackground:lightBackground
+      }}
+    >
       <Routes>
         
         <Route 
@@ -40,6 +47,7 @@ const Main = styled.div`
   justify-content: center;
   align-items: center;
   overflow: scroll;
+  transition-duration: 0.4s;
 `
 
 export default App;
