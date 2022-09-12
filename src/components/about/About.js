@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import dp from '../../images/dp.jpeg'
 import BottomContainer from './BottomContainer'
 import { useSelector } from 'react-redux'
-import { darkBackground, darkText, lightBackground, lightText} from '../../colors/colors';
+import { darkBackground, darkText, lightBackground} from '../../colors/colors';
 
 const About = () => {
 

@@ -4,7 +4,7 @@ import Home from './components/Content/Home';
 import {Routes, Route} from 'react-router-dom';
 import About from './components/about/About';
 import { useSelector } from 'react-redux'
-import {solidDark,lightBackground,darkBackground} from './colors/colors';
+import {lightBackground,darkBackground} from './colors/colors';
 
 function App() {
 

@@ -37,6 +37,7 @@ const FirstPage = () => {
             }}
         >
             <Button 
+                
                 style={{
                     color:darkmode?
                         isHovering?darkBackground:solidDark:
@@ -44,12 +45,17 @@ const FirstPage = () => {
                     backgroundColor:darkmode?
                         isHovering?solidDark:darkBackground:
                         isHovering?'#F5C7A9':lightBackground,
-                    // backgroundColor:darkmode?darkBackground:lightBackground,
-                    // ...buttonStateStyleLight
                 }}
+
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onClick={goToHome}>Explore  <i className="fa-solid fa-arrow-right"/></Button> 
+                onClick={goToHome}>
+                
+                Explore
+                <i className="fa-solid fa-arrow-right"/>
+                
+            </Button> 
+
         </Image>
     </Main>
   )
@@ -105,7 +111,6 @@ const Button = styled.button`
     font-size: 16px;
     margin: 4px 2px;
     transition-duration: 0.1s;
-    /* border: 1px solid #F5C7A9; */
     border: none;
     border-radius: 50px;
     width: 300px;

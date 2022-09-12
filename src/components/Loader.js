@@ -21,14 +21,16 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-duration: 0.4s;
 `
 
 const Image = styled.img`
-    margin-top: auto;
-    margin-bottom: auto;
-    min-width: 200px;
-    transition-duration: 0.4s;
-    width: 20%;
+  margin-top: auto;
+  margin-bottom: auto;
+  min-width: 200px;
+  transition-duration: 0.4s;
+  width: 20%;
+  transition-duration: 0.4s;
 `
 
 export default Loader

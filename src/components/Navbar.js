@@ -3,20 +3,48 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Drawer from './Content/Drawer/Drawer'
 import Toggle from './buttons/Toggle'
+import { useSelector } from 'react-redux'
+import { darkText, lightText, solidDark, solidLight } from '../colors/colors';
 
 const Navbar = () => {
+
+  const darkmode = useSelector(state=>state.darkmode.value);
+
   return (
-    <Main>
+    <Main
+      style={{
+        color:darkmode?darkText:lightText,
+      }}
+    >
       <Drawer/>
       <Nav className="navbar navbar-expand-lg bg-light">
-        <Container className=''>
+        <Container 
+          style={{
+            backgroundColor:darkmode?solidDark:solidLight,
+          }}
+        >
         
-          <Button className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <Button style={{color:darkmode?darkText:lightText}} className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
             <i className="fa-solid fa-bars"></i>
           </Button>
         
-          <Link to="/home" style={{color:'#FCF8E8'}} className="navbar-brand" >Mayur's Gallery</Link>
-          <Link to="/about" style={{color:'#FCF8E8'}} className="navbar-brand" >About</Link>
+          <Link to="/home" 
+            style={{
+              color:darkmode?darkText:lightText,
+              transitionDuration:'0.4s',
+            }} 
+            className="navbar-brand">
+            Mayur's Gallery
+          </Link>
+
+          <Link to="/about" 
+            style={{
+              color:darkmode?darkText:lightText,
+              transitionDuration:'0.4s',
+            }} 
+            className="navbar-brand">
+            About
+          </Link>
           
           <Toggle/>
         </Container>
@@ -54,7 +82,6 @@ const Nav = styled.nav`
 `
 
 const Button = styled.button`
-  color: white;
   margin-right: 10px;
   border: none;
   border-radius: 25px;
@@ -73,6 +100,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  transition-duration: 0.4s;
   /* justify-content: flex-start; */
   
 `

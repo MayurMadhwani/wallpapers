@@ -1,15 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import Navlink from './Navlink'
+import { useSelector } from 'react-redux'
+import { darkBackground, darkText, lightBackground, lightText, solidDark, solidLight } from '../../../colors/colors';
 
 const Drawer = () => {
+
+    const darkmode = useSelector(state=>state.darkmode.value);
+
   return (
-    <Main>
+    <Main
+        style={{
+            color:darkmode?solidDark:solidLight,
+
+        }}
+    >
         
-        <Bar style={{width:'300px'}} className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <Bar 
+            style={{
+                width:'300px',
+                backgroundColor:darkmode?darkBackground:lightBackground,
+            }} 
+            className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 
             <div className="offcanvas-header">
-                {/* <h5 className="offcanvas-title" id="offcanvasExampleLabel">Categories</h5> */}
                 <Heading>Categories</Heading>
                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"/>
             </div>
@@ -45,11 +59,9 @@ const Main = styled.div`
 `
 
 const Heading = styled.h5`
-    color:#C68B59;
 `
 
 const Bar = styled.div`
-    background-color: #FCF8E8;
 `
 
 const Categories = styled.div`
