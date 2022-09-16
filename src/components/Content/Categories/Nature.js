@@ -6,7 +6,7 @@ import Loader from '../../Loader';
 import ImageContainer from '../utilities/ImageContainer';
 import Container from './utilities/Container';
 
-const Macro = () => {
+const Nature = () => {
 
   const [refs, setRefs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const Macro = () => {
 
         for(const item of tempList){
 
-          if(item.name.includes('macro')){
+          if(item.name.includes('nature')){
             newList.push(item);
           }
 
@@ -117,4 +117,4 @@ const Macro = () => {
 
 }
 
-export default Macro
+export default Nature

@@ -6,7 +6,7 @@ import Loader from '../../Loader';
 import ImageContainer from '../utilities/ImageContainer';
 import Container from './utilities/Container';
 
-const Macro = () => {
+const Architecture = () => {
 
   const [refs, setRefs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const Macro = () => {
 
         for(const item of tempList){
 
-          if(item.name.includes('macro')){
+          if(item.name.includes('architecture')){
             newList.push(item);
           }
 
@@ -102,6 +102,7 @@ const Macro = () => {
 
   const handleChange = async(event, value)=>{setCurrentPage(value);}
 
+
   return (
     <>
       <Container>
@@ -114,7 +115,8 @@ const Macro = () => {
         <Pagination count={pageCount} page={currentPage} onChange={handleChange}/>
     </>
   )
-
 }
 
-export default Macro
+
+
+export default Architecture

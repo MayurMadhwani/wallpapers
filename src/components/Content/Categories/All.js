@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Pagination } from '@mui/material'
-import styled from 'styled-components'
 import Loader from '../../Loader';
 import ImageContainer from '../utilities/ImageContainer';
 import { getDownloadURL, listAll, ref } from 'firebase/storage';
 import { storage } from '../../../firebase';
+import {useParams } from 'react-router-dom';
+import Container from './utilities/Container';
 
 const All = () => {
 
@@ -15,9 +16,10 @@ const All = () => {
   const [pageCount, setPageCount] = useState(1);
   const [pageContent, setpageContent] = useState([]);
   const [loadedPageContent, setLoadedPageContent] = useState({});
-
+  const [category, setCategory] = useState();
+  let { userId } = useParams();
+  
   useEffect(() => {
-
     const getData = async()=>{
       
       setLoading(true);
@@ -105,32 +107,5 @@ const All = () => {
     </>
   )
 }
-
-const Container = styled.div`
-  
-  display: grid;
-  grid-column-start: 1;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 10px;
-  row-gap: 20px;
-  transition-duration: 0.4s;
-  animation-timing-function: ease;
-  
-  @media (max-width: 1300px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (max-width: 1100px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 800px) {
-    display: grid;
-    grid-template-columns: auto
-  }
-
-`
 
 export default All

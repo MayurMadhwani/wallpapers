@@ -6,8 +6,7 @@ import Loader from '../../Loader';
 import ImageContainer from '../utilities/ImageContainer';
 import Container from './utilities/Container';
 
-const Macro = () => {
-
+const Creative = () => {
   const [refs, setRefs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,7 +32,7 @@ const Macro = () => {
 
         for(const item of tempList){
 
-          if(item.name.includes('macro')){
+          if(item.name.includes('creative')){
             newList.push(item);
           }
 
@@ -114,7 +113,6 @@ const Macro = () => {
         <Pagination count={pageCount} page={currentPage} onChange={handleChange}/>
     </>
   )
-
 }
 
-export default Macro
+export default Creative

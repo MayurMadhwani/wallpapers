@@ -6,8 +6,7 @@ import Loader from '../../Loader';
 import ImageContainer from '../utilities/ImageContainer';
 import Container from './utilities/Container';
 
-const Macro = () => {
-
+const Flowers = () => {
   const [refs, setRefs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,7 +32,7 @@ const Macro = () => {
 
         for(const item of tempList){
 
-          if(item.name.includes('macro')){
+          if(item.name.includes('flower')){
             newList.push(item);
           }
 
@@ -117,4 +116,4 @@ const Macro = () => {
 
 }
 
-export default Macro
+export default Flowers
