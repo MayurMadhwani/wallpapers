@@ -41,8 +41,7 @@ const Home = () => {
           <Route path='sunset' element={<Sunset/>}/>
 
         </Routes>
-        
-
+        <hr/>
       </Content>
     </Main>
   )

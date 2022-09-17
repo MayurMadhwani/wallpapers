@@ -16,7 +16,7 @@ const Main = styled.div`
   row-gap: 20px;
   transition-duration: 0.4s;
   animation-timing-function: ease;
-  
+  margin-bottom: 20px;
   @media (max-width: 1300px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

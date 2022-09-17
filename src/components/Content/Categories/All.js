@@ -97,11 +97,11 @@ const All = () => {
   return (
     <>
       <Container>
-          {pageContent && pageContent.map((url,idx)=>
-            <ImageContainer key={idx} url={url}/>
-          )}
-          {loading && <Loader/>}
-        </Container>
+        {pageContent && pageContent.map((url,idx)=>
+          <ImageContainer key={idx} url={url}/>
+        )}
+        {loading && <Loader/>}
+      </Container>
 
         <Pagination count={pageCount} page={currentPage} onChange={handleChange}/>
     </>

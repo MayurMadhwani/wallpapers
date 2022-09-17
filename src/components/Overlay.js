@@ -31,19 +31,15 @@ const Overlay = () => {
                 <Span>What's New</Span>
                 <br/>
                 <Changes>
-                    <li>Website itself</li>
-                    <li>Loader alignment corrected</li>
-                    <li>About section added</li>
+                    <li>Categories Added</li>
+                    <li>Dark Mode Added</li>
                 </Changes>
                 <br/>
-                <Span>Upcoming Changes</Span>
-                <br/>
-                Categories will be added soon stay tuned
             </Content>
-            <Bottom>
+            {/* <Bottom>
                 <span style={{fontWeight:'bold'}}>Note: </span>
                 This website is still in production. So you may find some bugs.
-            </Bottom>
+            </Bottom> */}
         </Container>
     </Main>
   )
