@@ -18,7 +18,6 @@ const Navlink = ({ path, categoryStr }) => {
   const dispatch = useDispatch();
 
   var update = () => {
-    console.log(categoryStr);
     dispatch(updateCategory(categoryStr));
   };
 

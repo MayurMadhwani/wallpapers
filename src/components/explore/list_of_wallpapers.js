@@ -93,7 +93,7 @@ const ListOfWallpapers = () => {
         setRefs([]);
         setPageContent([]);
         setLoadedPageContent({});
-        // setCurrentPage(1);
+        setCurrentPage(1);
         getData();
         previousCategory.current = selectedCategory;
         return;

@@ -16,8 +16,6 @@ function App() {
     >
       <Routes>
         <Route path="/" element={<ExplorePage />} />
-
-
         <Route path="/about" element={<About />} />
       </Routes>
     </Main>
