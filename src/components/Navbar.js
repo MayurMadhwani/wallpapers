@@ -1,65 +1,73 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import Drawer from './Content/Drawer/Drawer'
-import Toggle from './buttons/Toggle'
-import { useSelector } from 'react-redux'
-import { darkText, lightText, solidDark, solidLight } from '../colors/colors';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Drawer from "./Content/Drawer/Drawer";
+import Toggle from "./buttons/Toggle";
+import { useSelector } from "react-redux";
+import { darkText, lightText, solidDark, solidLight } from "../colors/colors";
 
 const Navbar = () => {
-
-  const darkmode = useSelector(state=>state.darkmode.value);
+  const darkMode = useSelector((state) => state.darkMode.value);
 
   return (
     <Main
       style={{
-        color:darkmode?darkText:lightText,
+        color: darkMode ? darkText : lightText,
       }}
     >
-      <Drawer/>
+      <Drawer />
       <Nav className="navbar navbar-expand-lg bg-light">
-        <Container 
+        <Container
           style={{
-            backgroundColor:darkmode?solidDark:solidLight,
+            backgroundColor: darkMode ? solidDark : solidLight,
           }}
         >
-        
-          <Button style={{color:darkmode?darkText:lightText}} className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <Button
+            style={{ color: darkMode ? darkText : lightText }}
+            className="btn"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample"
+          >
             <i className="fa-solid fa-bars"></i>
           </Button>
-        
-          <Link to="/home" 
+
+          <Link
+            to="/home"
             style={{
-              color:darkmode?darkText:lightText,
-              transitionDuration:'0.4s',
-            }} 
-            className="navbar-brand">
+              color: darkMode ? darkText : lightText,
+              transitionDuration: "0.4s",
+            }}
+            className="navbar-brand"
+          >
             Mayur's Gallery
           </Link>
 
-          <Link to="/about" 
+          <Link
+            to="/about"
             style={{
-              color:darkmode?darkText:lightText,
-              transitionDuration:'0.4s',
-            }} 
-            className="navbar-brand">
+              color: darkMode ? darkText : lightText,
+              transitionDuration: "0.4s",
+            }}
+            className="navbar-brand"
+          >
             About
           </Link>
-          
-          <Toggle/>
+
+          <Toggle />
         </Container>
-        
       </Nav>
     </Main>
-  )
-}
+  );
+};
 
 const Main = styled.div`
   width: 98%;
   transition-duration: 0.4s;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left:10px;
+  margin-left: 10px;
   margin-right: 10px;
 
   animation-name: nav;
@@ -68,41 +76,45 @@ const Main = styled.div`
   animation-timing-function: ease;
 
   @keyframes nav {
-      from{opacity:0; height:0px; top:-200px}
-      to{opacity:1}
+    from {
+      opacity: 0;
+      height: 0px;
+      top: -200px;
+    }
+    to {
+      opacity: 1;
+    }
   }
-
-`
+`;
 
 const Nav = styled.nav`
   border-radius: 25px;
   padding: 0px;
   color: white;
   width: 100%;
-`
+`;
 
 const Button = styled.button`
   margin-right: 10px;
   border: none;
   border-radius: 25px;
   transition-duration: 0.4s;
-`
+`;
 
 const Container = styled.div`
-  background-color: #C68B59;//main color
+  background-color: #c68b59; //main color
   border-radius: 5px;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 20px;
   padding-right: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   letter-spacing: 1px;
   width: 100%;
   display: flex;
   align-items: center;
   transition-duration: 0.4s;
   /* justify-content: flex-start; */
-  
-`
+`;
 
-export default Navbar
+export default Navbar;

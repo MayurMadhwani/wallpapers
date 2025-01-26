@@ -1,63 +1,58 @@
-import React from 'react'
-import styled from 'styled-components'
-import dp from '../../images/dp.jpeg'
-import BottomContainer from './BottomContainer'
-import { useSelector } from 'react-redux'
-import { darkBackground, darkText, lightBackground} from '../../colors/colors';
+import React from "react";
+import styled from "styled-components";
+import dp from "../../images/dp.jpeg";
+import BottomContainer from "./BottomContainer";
+import { useSelector } from "react-redux";
+import { darkBackground, darkText, lightBackground } from "../../colors/colors";
 
 const About = () => {
-
-  const darkmode = useSelector(state=>state.darkmode.value);
+  const darkMode = useSelector((state) => state.darkMode.value);
 
   return (
     <Main
       style={{
-        color: darkmode ? darkText : 'black',
-        backgroundColor: darkmode ? darkBackground : lightBackground,
+        color: darkMode ? darkText : "black",
+        backgroundColor: darkMode ? darkBackground : lightBackground,
       }}
     >
-      
       <Top>
-        <img src={dp} alt='loading'></img>
+        <img src={dp} alt="loading"></img>
         <Intro>
           <Span>Hi there,</Span>
           I'm Mayur Madhwani
         </Intro>
       </Top>
       I'm a React Developer and a Photographer
-      <br/>
+      <br />
       I hope you like my work
-      <br/>
-      <br/>
+      <br />
+      <br />
       Feel free to connect
-
       <Bottom>
-        <BottomContainer/>
-      </Bottom> 
-
+        <BottomContainer />
+      </Bottom>
     </Main>
-  )
-}
+  );
+};
 
 const Main = styled.div`
-  
   width: 500px;
   height: 90%;
   max-height: 700px;
   transition-duration: 0.4s;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-flow: column;
   letter-spacing: 1px;
   overflow-y: hidden;
-  &:hover{
+  &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  img{
+  img {
     background-color: white;
     width: 200px;
     height: 200px;
@@ -83,17 +78,17 @@ const Main = styled.div`
 
   @keyframes main {
     from {
-      opacity:0;
-      width:50%;
-      height:50%;
+      opacity: 0;
+      width: 50%;
+      height: 50%;
     }
-    to {opacity:1}
+    to {
+      opacity: 1;
+    }
   }
-
-`
+`;
 
 const Top = styled.div`
-
   display: flex;
   align-items: flex-end;
   margin: 40px;
@@ -102,21 +97,19 @@ const Top = styled.div`
   @media (max-width: 550px) {
     width: 90%;
   }
-  
-`
+`;
 
 const Intro = styled.div`
   margin: 10px;
-`
+`;
 
 const Span = styled.span`
   font-size: 30px;
   display: block;
   transition-duration: 0.4s;
-`
+`;
 
 const Bottom = styled.div`
-
   width: 100%;
   height: 300px;
   transition-duration: 0.2s;
@@ -128,15 +121,14 @@ const Bottom = styled.div`
   border: 20px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-size: 10px;
-  &:hover{
+  &:hover {
     margin-top: 100px;
     font-size: 30px;
-    i{
+    i {
       transition-duration: 25ms;
       padding: 10px;
     }
   }
+`;
 
-`
-
-export default About  
+export default About;
