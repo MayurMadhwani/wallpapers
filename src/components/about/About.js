@@ -22,7 +22,7 @@ const About = () => {
           I'm Mayur Madhwani
         </Intro>
       </Top>
-      I'm a React Developer and a Photographer
+      I'm a Frontend Developer and a Photographer
       <br />
       I hope you like my work
       <br />
