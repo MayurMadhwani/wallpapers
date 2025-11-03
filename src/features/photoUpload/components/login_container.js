@@ -1,29 +1,42 @@
 import styled from "styled-components";
 import profileIcon from "../../../assets/icons/profile.png";
+import keyIcon from "../../../assets/icons/key.png";
 import InputComponent from "./input_component";
 
 const LoginContainer = () => {
+
+
+  const onUsernameChange = (e) => {
+    console.log(e.target.value);
+  };
+
+  const onPasswordChange = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <Main>
-      
       {/* <label for="fname">First name:</label> */}
 
-      <InputComponent/>
+      <InputComponent
+        type={"text"}
+        icon={profileIcon}
+        placeholder={"Username"}
+        onChange={onUsernameChange}
+      />
 
-      {/* <label for="lname">Last name:</label> */}
       <br />
       <InputComponent
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
+        type={"password"}
+        icon={keyIcon}
+        placeholder={"password"}
+        onChange={onPasswordChange}
       />
       <br />
-      <input type="submit" value="Submit" />
+      {/* <input type="submit" value="Submit" /> */}
     </Main>
   );
 };
-
 
 const Main = styled.div`
   background-color: white;
@@ -49,9 +62,9 @@ const Main = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  /* @media (max-width: 768px) {
+  @media (max-width: 768px) {
         
-    } */
+    }
 
   //animation
 
@@ -71,7 +84,5 @@ const Main = styled.div`
     }
   }
 `;
-
-
 
 export default LoginContainer;
